@@ -13,7 +13,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(classb)
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([object isKindOfClass:[classA class]]) {
         NSLog(@"ChangzuozhenGmailAdded old : %@ new: %@ kind: %@",[change objectForKey:@"old"],[change objectForKey:@"new"],[change objectForKey:@"kind"]);
-        //added by gmailchang
     }
 }
 @end
