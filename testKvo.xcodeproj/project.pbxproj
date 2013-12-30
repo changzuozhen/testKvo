@@ -86,13 +86,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1D6FDD891871645700A4AE6B = {
+		1D61E1311871D15800E1A730 /* model */ = {
 			isa = PBXGroup;
 			children = (
 				1D6FDDCA1871646B00A4AE6B /* classA.h */,
 				1D6FDDCB1871646B00A4AE6B /* classA.m */,
 				1D6FDDCE187164E800A4AE6B /* classb.h */,
 				1D6FDDCF187164E800A4AE6B /* classb.m */,
+			);
+			name = model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1D6FDD891871645700A4AE6B = {
+			isa = PBXGroup;
+			children = (
 				1D6FDD9B1871645800A4AE6B /* testKvo */,
 				1D6FDDBA1871645800A4AE6B /* testKvoTests */,
 				1D6FDD941871645800A4AE6B /* Frameworks */,
@@ -123,13 +131,11 @@
 		1D6FDD9B1871645800A4AE6B /* testKvo */ = {
 			isa = PBXGroup;
 			children = (
+				1D61E1311871D15800E1A730 /* model */,
 				1D6FDDCD1871649200A4AE6B /* ARCSingletonTemplate.h */,
-				1D6FDDA41871645800A4AE6B /* AppDelegate.h */,
-				1D6FDDA51871645800A4AE6B /* AppDelegate.m */,
 				1D6FDDA71871645800A4AE6B /* Main.storyboard */,
 				1D6FDDAA1871645800A4AE6B /* ViewController.h */,
 				1D6FDDAB1871645800A4AE6B /* ViewController.m */,
-				1D6FDDAD1871645800A4AE6B /* Images.xcassets */,
 				1D6FDD9C1871645800A4AE6B /* Supporting Files */,
 			);
 			path = testKvo;
@@ -138,6 +144,9 @@
 		1D6FDD9C1871645800A4AE6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D6FDDAD1871645800A4AE6B /* Images.xcassets */,
+				1D6FDDA41871645800A4AE6B /* AppDelegate.h */,
+				1D6FDDA51871645800A4AE6B /* AppDelegate.m */,
 				1D6FDD9D1871645800A4AE6B /* testKvo-Info.plist */,
 				1D6FDD9E1871645800A4AE6B /* InfoPlist.strings */,
 				1D6FDDA11871645800A4AE6B /* main.m */,
@@ -474,6 +483,7 @@
 				1D6FDDC61871645800A4AE6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D6FDDC71871645800A4AE6B /* Build configuration list for PBXNativeTarget "testKvoTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +492,7 @@
 				1D6FDDC91871645800A4AE6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

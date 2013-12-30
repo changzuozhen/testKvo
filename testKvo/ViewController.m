@@ -22,12 +22,10 @@
 }
 -(void)handleinit{
     [[classA sharedclassA]addObserver:[classb sharedclassb] forKeyPath:@"aaa" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
-//    [[classb sharedclassb]observeValueForKeyPath:@"aaa" ofObject:[classA sharedclassA] change:(NSDictionary *) context:(void *)];
 }
 - (IBAction)btn1:(UIButton *)sender {
     static int a = 0;
     [[classA sharedclassA]setAaa:++a];
-//    NSLog(@"aaa: %d",[classA sharedclassA].aaa);
 }
 
 @end
