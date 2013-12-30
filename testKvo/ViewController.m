@@ -30,5 +30,7 @@
 -(void)test1{
     
 }
-
+-(void)test2{
+    
+}
 @end
