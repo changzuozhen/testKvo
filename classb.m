@@ -15,7 +15,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(classb)
 //        [classA sharedclassA]
         NSLog(@"old : %@ new: %@ kind: %@",[change objectForKey:@"old"],[change objectForKey:@"new"],[change objectForKey:@"kind"]);
 //        NSLog(<#NSString *format, ...#>)
-        NSLog(@"added by changzuozhen");
     }
 }
 @end
