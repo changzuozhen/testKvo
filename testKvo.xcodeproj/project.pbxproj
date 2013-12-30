@@ -21,6 +21,8 @@
 		1D6FDDB71871645800A4AE6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6FDD991871645800A4AE6B /* UIKit.framework */; };
 		1D6FDDBF1871645800A4AE6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D6FDDBD1871645800A4AE6B /* InfoPlist.strings */; };
 		1D6FDDC11871645800A4AE6B /* testKvoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6FDDC01871645800A4AE6B /* testKvoTests.m */; };
+		1D6FDDCC1871646B00A4AE6B /* classA.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6FDDCB1871646B00A4AE6B /* classA.m */; };
+		1D6FDDD0187164E800A4AE6B /* classb.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6FDDCF187164E800A4AE6B /* classb.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,11 @@
 		1D6FDDBC1871645800A4AE6B /* testKvoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "testKvoTests-Info.plist"; sourceTree = "<group>"; };
 		1D6FDDBE1871645800A4AE6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D6FDDC01871645800A4AE6B /* testKvoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testKvoTests.m; sourceTree = "<group>"; };
+		1D6FDDCA1871646B00A4AE6B /* classA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = classA.h; sourceTree = "<group>"; };
+		1D6FDDCB1871646B00A4AE6B /* classA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = classA.m; sourceTree = "<group>"; };
+		1D6FDDCD1871649200A4AE6B /* ARCSingletonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCSingletonTemplate.h; sourceTree = "<group>"; };
+		1D6FDDCE187164E800A4AE6B /* classb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = classb.h; sourceTree = "<group>"; };
+		1D6FDDCF187164E800A4AE6B /* classb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = classb.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +89,10 @@
 		1D6FDD891871645700A4AE6B = {
 			isa = PBXGroup;
 			children = (
+				1D6FDDCA1871646B00A4AE6B /* classA.h */,
+				1D6FDDCB1871646B00A4AE6B /* classA.m */,
+				1D6FDDCE187164E800A4AE6B /* classb.h */,
+				1D6FDDCF187164E800A4AE6B /* classb.m */,
 				1D6FDD9B1871645800A4AE6B /* testKvo */,
 				1D6FDDBA1871645800A4AE6B /* testKvoTests */,
 				1D6FDD941871645800A4AE6B /* Frameworks */,
@@ -112,6 +123,7 @@
 		1D6FDD9B1871645800A4AE6B /* testKvo */ = {
 			isa = PBXGroup;
 			children = (
+				1D6FDDCD1871649200A4AE6B /* ARCSingletonTemplate.h */,
 				1D6FDDA41871645800A4AE6B /* AppDelegate.h */,
 				1D6FDDA51871645800A4AE6B /* AppDelegate.m */,
 				1D6FDDA71871645800A4AE6B /* Main.storyboard */,
@@ -251,7 +263,9 @@
 			files = (
 				1D6FDDAC1871645800A4AE6B /* ViewController.m in Sources */,
 				1D6FDDA61871645800A4AE6B /* AppDelegate.m in Sources */,
+				1D6FDDCC1871646B00A4AE6B /* classA.m in Sources */,
 				1D6FDDA21871645800A4AE6B /* main.m in Sources */,
+				1D6FDDD0187164E800A4AE6B /* classb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  classA.h
 //  testKvo
 //
 //  Created by ChangZuozhen on 13-12-30.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "classA.h"
-#import "classb.h"
-@interface ViewController : UIViewController
+#import "ARCSingletonTemplate.h"
+@interface classA : NSObject
+SYNTHESIZE_SINGLETON_FOR_HEADER(classA)
 
+@property int aaa;
 @end
