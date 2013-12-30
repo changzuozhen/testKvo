@@ -27,5 +27,8 @@
     static int a = 0;
     [[classA sharedclassA]setAaa:++a];
 }
+-(void)test1{
+    
+}
 
 @end
