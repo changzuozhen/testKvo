@@ -9,6 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *imageview1;
+@property (strong, nonatomic) IBOutlet UIImageView *uiimageview2;
 
 @end
 
@@ -26,11 +28,38 @@
 - (IBAction)btn1:(UIButton *)sender {
     static int a = 0;
     [[classA sharedclassA]setAaa:++a];
+    [self.uiimageview2 setImage:[UIImage imageNamed:@"LASTPOINTred"]];
 }
 -(void)test1{
     
 }
 -(void)test2{
+    
+}
+- (IBAction)btn2:(id)sender {
+    [self.uiimageview2 setImage:[self reSizeImage:[self convertViewToImage:self.imageview1] toSize:CGSizeMake(180, 180)]];
+}
+
+- (UIImage *)reSizeImage:(UIImage *)image toSize:(CGSize)reSize
+{
+    UIGraphicsBeginImageContext(CGSizeMake(reSize.width, reSize.height));
+    [image drawInRect:CGRectMake(0, 0, reSize.width, reSize.height)];
+    UIImage *reSizeImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSLog(@"%@",NSStringFromCGSize(reSizeImage.size));
+    return reSizeImage;
+}
+-(UIImage*)convertViewToImage:(UIView*)v{
+    
+    UIGraphicsBeginImageContext(v.bounds.size);
+    
+    [v.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
     
 }
 @end
