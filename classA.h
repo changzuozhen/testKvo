@@ -12,4 +12,5 @@
 SYNTHESIZE_SINGLETON_FOR_HEADER(classA)
 
 @property int aaa;
+@property UIImage * thumbimage;
 @end

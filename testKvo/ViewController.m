@@ -30,6 +30,7 @@
     [[classA sharedclassA]setAaa:++a];
     [self.uiimageview2 setImage:[UIImage imageNamed:@"LASTPOINTred"]];
 }
+
 -(void)test1{
     
 }
@@ -61,5 +62,10 @@
     
     return image;
     
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"testSegue"]) {
+        [[classA sharedclassA]setThumbimage:[self convertViewToImage:self.imageview1]];
+    }
 }
 @end

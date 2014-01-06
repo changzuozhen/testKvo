@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D36AAFC187A79BC0008E430 /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D36AAFB187A79BC0008E430 /* ViewController3.m */; };
+		1D36AAFF187A7C6B0008E430 /* ViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D36AAFE187A7C6B0008E430 /* ViewController4.m */; };
+		1D36AB02187AC7680008E430 /* collectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D36AB01187AC7680008E430 /* collectionViewCell.m */; };
+		1D36AB06187AD1900008E430 /* collectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D36AB05187AD1900008E430 /* collectionReusableView.m */; };
 		1D6FDD961871645800A4AE6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6FDD951871645800A4AE6B /* Foundation.framework */; };
 		1D6FDD981871645800A4AE6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6FDD971871645800A4AE6B /* CoreGraphics.framework */; };
 		1D6FDD9A1871645800A4AE6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6FDD991871645800A4AE6B /* UIKit.framework */; };
@@ -23,6 +27,9 @@
 		1D6FDDC11871645800A4AE6B /* testKvoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6FDDC01871645800A4AE6B /* testKvoTests.m */; };
 		1D6FDDCC1871646B00A4AE6B /* classA.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6FDDCB1871646B00A4AE6B /* classA.m */; };
 		1D6FDDD0187164E800A4AE6B /* classb.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6FDDCF187164E800A4AE6B /* classb.m */; };
+		1DB8743D18765F1200135F86 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8743C18765F1200135F86 /* ViewController2.m */; };
+		1DF00316187A54E80085257E /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF00315187A54E80085257E /* iAd.framework */; };
+		1DF00319187A6B050085257E /* pageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF00318187A6B050085257E /* pageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D36AAFA187A79BC0008E430 /* ViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController3.h; sourceTree = "<group>"; };
+		1D36AAFB187A79BC0008E430 /* ViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController3.m; sourceTree = "<group>"; };
+		1D36AAFD187A7C6B0008E430 /* ViewController4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController4.h; sourceTree = "<group>"; };
+		1D36AAFE187A7C6B0008E430 /* ViewController4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController4.m; sourceTree = "<group>"; };
+		1D36AB00187AC7680008E430 /* collectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionViewCell.h; sourceTree = "<group>"; };
+		1D36AB01187AC7680008E430 /* collectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionViewCell.m; sourceTree = "<group>"; };
+		1D36AB04187AD1900008E430 /* collectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionReusableView.h; sourceTree = "<group>"; };
+		1D36AB05187AD1900008E430 /* collectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionReusableView.m; sourceTree = "<group>"; };
 		1D6FDD921871645800A4AE6B /* testKvo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testKvo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6FDD951871645800A4AE6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6FDD971871645800A4AE6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,6 +75,12 @@
 		1D6FDDCD1871649200A4AE6B /* ARCSingletonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCSingletonTemplate.h; sourceTree = "<group>"; };
 		1D6FDDCE187164E800A4AE6B /* classb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = classb.h; sourceTree = "<group>"; };
 		1D6FDDCF187164E800A4AE6B /* classb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = classb.m; sourceTree = "<group>"; };
+		1DB8743B18765F1200135F86 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
+		1DB8743C18765F1200135F86 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
+		1DF0030E187A52DE0085257E /* testKvo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = testKvo.entitlements; sourceTree = "<group>"; };
+		1DF00315187A54E80085257E /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		1DF00317187A6B050085257E /* pageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pageViewController.h; sourceTree = "<group>"; };
+		1DF00318187A6B050085257E /* pageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF00316187A54E80085257E /* iAd.framework in Frameworks */,
 				1D6FDD981871645800A4AE6B /* CoreGraphics.framework in Frameworks */,
 				1D6FDD9A1871645800A4AE6B /* UIKit.framework in Frameworks */,
 				1D6FDD961871645800A4AE6B /* Foundation.framework in Frameworks */,
@@ -86,6 +108,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D36AB03187AC7990008E430 /* MyUICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				1D6FDDA71871645800A4AE6B /* Main.storyboard */,
+				1D36AB04187AD1900008E430 /* collectionReusableView.h */,
+				1D36AB05187AD1900008E430 /* collectionReusableView.m */,
+				1D36AB00187AC7680008E430 /* collectionViewCell.h */,
+				1D36AB01187AC7680008E430 /* collectionViewCell.m */,
+				1D36AAFD187A7C6B0008E430 /* ViewController4.h */,
+				1D36AAFE187A7C6B0008E430 /* ViewController4.m */,
+			);
+			name = MyUICollectionView;
+			sourceTree = "<group>";
+		};
 		1D61E1311871D15800E1A730 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +156,7 @@
 		1D6FDD941871645800A4AE6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1DF00315187A54E80085257E /* iAd.framework */,
 				1D6FDD951871645800A4AE6B /* Foundation.framework */,
 				1D6FDD971871645800A4AE6B /* CoreGraphics.framework */,
 				1D6FDD991871645800A4AE6B /* UIKit.framework */,
@@ -131,11 +168,18 @@
 		1D6FDD9B1871645800A4AE6B /* testKvo */ = {
 			isa = PBXGroup;
 			children = (
+				1DF0030E187A52DE0085257E /* testKvo.entitlements */,
 				1D61E1311871D15800E1A730 /* model */,
 				1D6FDDCD1871649200A4AE6B /* ARCSingletonTemplate.h */,
-				1D6FDDA71871645800A4AE6B /* Main.storyboard */,
+				1D36AB03187AC7990008E430 /* MyUICollectionView */,
+				1D36AAFA187A79BC0008E430 /* ViewController3.h */,
+				1D36AAFB187A79BC0008E430 /* ViewController3.m */,
+				1DF00317187A6B050085257E /* pageViewController.h */,
+				1DF00318187A6B050085257E /* pageViewController.m */,
 				1D6FDDAA1871645800A4AE6B /* ViewController.h */,
 				1D6FDDAB1871645800A4AE6B /* ViewController.m */,
+				1DB8743B18765F1200135F86 /* ViewController2.h */,
+				1DB8743C18765F1200135F86 /* ViewController2.m */,
 				1D6FDD9C1871645800A4AE6B /* Supporting Files */,
 			);
 			path = testKvo;
@@ -220,6 +264,23 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = ChangZuozhen;
 				TargetAttributes = {
+					1D6FDD911871645800A4AE6B = {
+						DevelopmentTeam = DKHSZDLJZX;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
 					1D6FDDB21871645800A4AE6B = {
 						TestTargetID = 1D6FDD911871645800A4AE6B;
 					};
@@ -272,9 +333,15 @@
 			files = (
 				1D6FDDAC1871645800A4AE6B /* ViewController.m in Sources */,
 				1D6FDDA61871645800A4AE6B /* AppDelegate.m in Sources */,
+				1DF00319187A6B050085257E /* pageViewController.m in Sources */,
 				1D6FDDCC1871646B00A4AE6B /* classA.m in Sources */,
+				1D36AB06187AD1900008E430 /* collectionReusableView.m in Sources */,
 				1D6FDDA21871645800A4AE6B /* main.m in Sources */,
 				1D6FDDD0187164E800A4AE6B /* classb.m in Sources */,
+				1D36AB02187AC7680008E430 /* collectionViewCell.m in Sources */,
+				1D36AAFC187A79BC0008E430 /* ViewController3.m in Sources */,
+				1DB8743D18765F1200135F86 /* ViewController2.m in Sources */,
+				1D36AAFF187A7C6B0008E430 /* ViewController4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,10 +468,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testKvo/testKvo-Prefix.pch";
 				INFOPLIST_FILE = "testKvo/testKvo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -414,10 +486,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testKvo/testKvo-Prefix.pch";
 				INFOPLIST_FILE = "testKvo/testKvo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
