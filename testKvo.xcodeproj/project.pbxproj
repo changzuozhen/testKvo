@@ -28,6 +28,8 @@
 		1D6FDDCC1871646B00A4AE6B /* classA.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6FDDCB1871646B00A4AE6B /* classA.m */; };
 		1D6FDDD0187164E800A4AE6B /* classb.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6FDDCF187164E800A4AE6B /* classb.m */; };
 		1DB8743D18765F1200135F86 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8743C18765F1200135F86 /* ViewController2.m */; };
+		1DDC30CC187B9EEF001EE706 /* settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC30CB187B9EEF001EE706 /* settings.m */; };
+		1DDC30CF187BA0AD001EE706 /* firstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC30CE187BA0AD001EE706 /* firstViewController.m */; };
 		1DF00316187A54E80085257E /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF00315187A54E80085257E /* iAd.framework */; };
 		1DF00319187A6B050085257E /* pageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF00318187A6B050085257E /* pageViewController.m */; };
 /* End PBXBuildFile section */
@@ -77,6 +79,10 @@
 		1D6FDDCF187164E800A4AE6B /* classb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = classb.m; sourceTree = "<group>"; };
 		1DB8743B18765F1200135F86 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		1DB8743C18765F1200135F86 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
+		1DDC30CA187B9EEF001EE706 /* settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
+		1DDC30CB187B9EEF001EE706 /* settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settings.m; sourceTree = "<group>"; };
+		1DDC30CD187BA0AD001EE706 /* firstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firstViewController.h; sourceTree = "<group>"; };
+		1DDC30CE187BA0AD001EE706 /* firstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstViewController.m; sourceTree = "<group>"; };
 		1DF0030E187A52DE0085257E /* testKvo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = testKvo.entitlements; sourceTree = "<group>"; };
 		1DF00315187A54E80085257E /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		1DF00317187A6B050085257E /* pageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pageViewController.h; sourceTree = "<group>"; };
@@ -111,7 +117,12 @@
 		1D36AB03187AC7990008E430 /* MyUICollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				1D6FDDCD1871649200A4AE6B /* ARCSingletonTemplate.h */,
+				1DDC30CA187B9EEF001EE706 /* settings.h */,
+				1DDC30CB187B9EEF001EE706 /* settings.m */,
 				1D6FDDA71871645800A4AE6B /* Main.storyboard */,
+				1DDC30CD187BA0AD001EE706 /* firstViewController.h */,
+				1DDC30CE187BA0AD001EE706 /* firstViewController.m */,
 				1D36AB04187AD1900008E430 /* collectionReusableView.h */,
 				1D36AB05187AD1900008E430 /* collectionReusableView.m */,
 				1D36AB00187AC7680008E430 /* collectionViewCell.h */,
@@ -170,7 +181,6 @@
 			children = (
 				1DF0030E187A52DE0085257E /* testKvo.entitlements */,
 				1D61E1311871D15800E1A730 /* model */,
-				1D6FDDCD1871649200A4AE6B /* ARCSingletonTemplate.h */,
 				1D36AB03187AC7990008E430 /* MyUICollectionView */,
 				1D36AAFA187A79BC0008E430 /* ViewController3.h */,
 				1D36AAFB187A79BC0008E430 /* ViewController3.m */,
@@ -334,6 +344,7 @@
 				1D6FDDAC1871645800A4AE6B /* ViewController.m in Sources */,
 				1D6FDDA61871645800A4AE6B /* AppDelegate.m in Sources */,
 				1DF00319187A6B050085257E /* pageViewController.m in Sources */,
+				1DDC30CF187BA0AD001EE706 /* firstViewController.m in Sources */,
 				1D6FDDCC1871646B00A4AE6B /* classA.m in Sources */,
 				1D36AB06187AD1900008E430 /* collectionReusableView.m in Sources */,
 				1D6FDDA21871645800A4AE6B /* main.m in Sources */,
@@ -341,6 +352,7 @@
 				1D36AB02187AC7680008E430 /* collectionViewCell.m in Sources */,
 				1D36AAFC187A79BC0008E430 /* ViewController3.m in Sources */,
 				1DB8743D18765F1200135F86 /* ViewController2.m in Sources */,
+				1DDC30CC187B9EEF001EE706 /* settings.m in Sources */,
 				1D36AAFF187A7C6B0008E430 /* ViewController4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@
 #import "ViewController4.h"
 #import "collectionViewCell.h"
 #import "collectionReusableView.h"
+#import "settings.h"
 static float rowCellCount = 4.0;
 static float lineCellCount = 6.0;
 @interface ViewController4 ()
@@ -28,13 +29,23 @@ static float lineCellCount = 6.0;
     }
     return self;
 }
-
+//-vie
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    NSLog(@"loadPersistData");
+//    [self performSelectorOnMainThread:@selector(loadPersistData:) withObject:nil waitUntilDone:YES];
+//    [self loadPersistData:nil];
 //    NSLog(@"toplayOutGuide: %@",self.navigationController.topLayoutGuide);//self.topLayoutGuide);
 	// Do any additional setup after loading the view.
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    NSLog(@"savePersistentData");
+    [[settings sharedsettings] savePersistentData:nil];
+}
+
+
+
 
 
 #pragma mark - UICollectionViewDataSource
@@ -59,8 +70,14 @@ static float lineCellCount = 6.0;
         }else{
             [result setBackgroundColor:[self colorForItemAtIndexPath:indexPath]];
         }
-
-        [result.label setText:[NSString stringWithFormat:@"%d",[indexPath indexAtPosition:1]]];
+        NSString * key = [NSString stringWithFormat:@"%d %d", [indexPath indexAtPosition:0],[indexPath indexAtPosition:1]];
+//        NSLog(@"get cell of : %@",key);
+        if ([[settings sharedsettings].playedCount objectForKey:key] == nil) {
+            [[settings sharedsettings].playedCount setObject:[NSNumber numberWithInt:0] forKey:key];
+        }else{
+//            NSLog(@"[settings sharedsettings].playedCount has key: %@",key);
+        }
+        [result.label setText:[NSString stringWithFormat:@"%d %d",[indexPath indexAtPosition:1],[[[settings sharedsettings].playedCount objectForKey:key] integerValue]]];
         i++;
         if (i>1) {
             NSLog(@"dequeueReusableCellWithReuseIdentifier not good !!!!!!!!!!!!!");
@@ -161,7 +178,20 @@ static float lineCellCount = 6.0;
 //4
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"didSelectItemAtIndexPath : %@",indexPath);
-    [[collectionView cellForItemAtIndexPath:indexPath]setBackgroundColor:[UIColor yellowColor]];
+    collectionViewCell * tempCell = (collectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [tempCell setBackgroundColor:[UIColor yellowColor]];
+    //加入segue处理函数
+    
+//    NSString * key = [NSString stringWithFormat:@"%@",indexPath];
+    NSString * key = [NSString stringWithFormat:@"%d %d", [indexPath indexAtPosition:0],[indexPath indexAtPosition:1]];
+    NSNumber * value = [[settings sharedsettings].playedCount objectForKey:key];
+    if (value == nil) {
+        [[settings sharedsettings].playedCount setObject:[NSNumber numberWithInt:0] forKey:key];
+    }else{
+        int temp = [value integerValue]+1;
+        [[settings sharedsettings].playedCount setObject:[NSNumber numberWithInt:temp] forKey:key];
+    }
+    [tempCell.label setText:[NSString stringWithFormat:@"%d %d",[indexPath indexAtPosition:1],[[[settings sharedsettings].playedCount objectForKey:key] integerValue]]];
 }
 //4
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -204,7 +234,7 @@ static float lineCellCount = 6.0;
     CGFloat b = collectionView.bounds.size.height - 86;
     CGFloat temp = (a-width*rowCellCount)/(rowCellCount + 1) ;
     CGFloat vertical = b/(lineCellCount + 1)/(lineCellCount + 1);
-    NSLog(@"insetForSectionAtIndex:   %f",temp);
+//    NSLog(@"insetForSectionAtIndex:   %f",temp);
     UIEdgeInsets result = UIEdgeInsetsMake(0, temp, vertical*2, temp);
     return result;
 }
@@ -214,7 +244,7 @@ static float lineCellCount = 6.0;
     float width = width1<width2 ? width1 : width2;
     CGFloat a = collectionView.bounds.size.width-1;
     CGFloat result = (a-width*rowCellCount)/(rowCellCount + 1) ;
-    NSLog(@"minimumLineSpacingForSectionAtIndex:   %f",result);
+//    NSLog(@"minimumLineSpacingForSectionAtIndex:   %f",result);
     return result;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
