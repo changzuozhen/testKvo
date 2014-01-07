@@ -36,11 +36,6 @@ static float lineCellCount = 6.0;
 	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - UICollectionViewDataSource
 
@@ -50,7 +45,28 @@ static float lineCellCount = 6.0;
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    collectionViewCell * result = [collectionView dequeueReusableCellWithReuseIdentifier:[self identiferForItemAtIndexPath:indexPath] forIndexPath:indexPath];
+    collectionViewCell * result = nil;
+    int i = 0;
+    NSString * identifer = @"cell1";//[self identiferForItemAtIndexPath:indexPath];
+    while (!result) {
+//        while (!identifer) {
+//            NSLog(@"identifer not good !!!!!!!!!!!!!");
+//            identifer = [self identiferForItemAtIndexPath:indexPath];
+//        }
+        result = [collectionView dequeueReusableCellWithReuseIdentifier:identifer forIndexPath:indexPath];
+        if ([indexPath isEqual:[[collectionView indexPathsForSelectedItems] lastObject]]) {
+            [result setBackgroundColor:[UIColor yellowColor]];
+        }else{
+            [result setBackgroundColor:[self colorForItemAtIndexPath:indexPath]];
+        }
+
+        [result.label setText:[NSString stringWithFormat:@"%d",[indexPath indexAtPosition:1]]];
+        i++;
+        if (i>1) {
+            NSLog(@"dequeueReusableCellWithReuseIdentifier not good !!!!!!!!!!!!!");
+        }
+    }
+
 //    CGPoint center = [result convertPoint:result.center fromView:result.superview];
 //    UILabel * label = [[UILabel alloc] init];
 //    [label setText:[NSString stringWithFormat:@"%d",[indexPath indexAtPosition:1]+1]];
@@ -58,9 +74,26 @@ static float lineCellCount = 6.0;
     return result;
 }
 -(NSString *)identiferForItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSString * result = [NSString stringWithFormat:@"cell%d",[indexPath indexAtPosition:0]%8+1];
+    NSString * result = [NSString stringWithFormat:@"cell%d",[indexPath indexAtPosition:0]%4+1];
     
     return result;
+}
+-(UIColor *)colorForItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *colors = @[
+                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
+                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
+                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
+                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
+                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
+                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
+                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
+                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
+                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
+                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
+                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
+                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
+                        ];
+    return colors[[indexPath indexAtPosition:0]%12];
 }
 //@optional
 
@@ -93,13 +126,48 @@ static float lineCellCount = 6.0;
 // 3. -collectionView:shouldSelectItemAtIndexPath: or -collectionView:shouldDeselectItemAtIndexPath:
 // 4. -collectionView:didSelectItemAtIndexPath: or -collectionView:didDeselectItemAtIndexPath:
 // 5. -collectionView:didUnhighlightItemAtIndexPath:
-//- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath;
-//- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath;
-//- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath;
-//- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath;
-//- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath; // called when the user taps on an already-selected item in multi-select mode
-//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
-//- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath;
+//1
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+//    if ([indexPath indexAtPosition:1]%2 == 0) {
+//        return YES;
+//    }
+//    return NO;
+    NSLog(@"**********\nshouldHighlightItemAtIndexPath");
+    return YES;
+}
+//2
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"didHighlightItemAtIndexPath");
+    [[collectionView cellForItemAtIndexPath:indexPath]setBackgroundColor:[UIColor whiteColor]];
+}
+//5
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"didUnhighlightItemAtIndexPath");
+    [[collectionView cellForItemAtIndexPath:indexPath]setBackgroundColor:[self colorForItemAtIndexPath:indexPath]];
+}
+//3
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"shouldSelectItemAtIndexPath");
+    //在这里可以加入关卡锁定功能
+
+    return YES;
+}
+//3
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"shouldDeselectItemAtIndexPath");
+
+    return YES;
+}// called when the user taps on an already-selected item in multi-select mode
+//4
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"didSelectItemAtIndexPath : %@",indexPath);
+    [[collectionView cellForItemAtIndexPath:indexPath]setBackgroundColor:[UIColor yellowColor]];
+}
+//4
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"didDeselectItemAtIndexPath");
+    [[collectionView cellForItemAtIndexPath:indexPath]setBackgroundColor:[self colorForItemAtIndexPath:indexPath]];
+}
 
 //- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
 //- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
@@ -122,26 +190,26 @@ static float lineCellCount = 6.0;
 #pragma mark - UICollectionViewDelegateFlowLayout
 //@optional
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    float width1 = (collectionView.bounds.size.height - 66)/(lineCellCount + 1) ;
+    float width1 = (collectionView.bounds.size.height - 86)/(lineCellCount + 1) ;
     float width2 = (collectionView.bounds.size.width-1)/(rowCellCount + 1) ;
     float width = width1<width2 ? width1 : width2;
     CGSize result = CGSizeMake(width, width);
     return result;
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    float width1 = (collectionView.bounds.size.height - 66)/(lineCellCount + 1) ;
+    float width1 = (collectionView.bounds.size.height - 86)/(lineCellCount + 1) ;
     float width2 = (collectionView.bounds.size.width-1)/(rowCellCount + 1) ;
     float width = width1<width2 ? width1 : width2;
     CGFloat a = collectionView.bounds.size.width-1;
-    CGFloat b = collectionView.bounds.size.height-66;
+    CGFloat b = collectionView.bounds.size.height - 86;
     CGFloat temp = (a-width*rowCellCount)/(rowCellCount + 1) ;
     CGFloat vertical = b/(lineCellCount + 1)/(lineCellCount + 1);
     NSLog(@"insetForSectionAtIndex:   %f",temp);
-    UIEdgeInsets result = UIEdgeInsetsMake(vertical, temp, vertical, temp);
+    UIEdgeInsets result = UIEdgeInsetsMake(0, temp, vertical*2, temp);
     return result;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    float width1 = (collectionView.bounds.size.height - 66)/(lineCellCount + 1) ;
+    float width1 = (collectionView.bounds.size.height - 86)/(lineCellCount + 1) ;
     float width2 = (collectionView.bounds.size.width-1)/(rowCellCount + 1) ;
     float width = width1<width2 ? width1 : width2;
     CGFloat a = collectionView.bounds.size.width-1;
@@ -150,7 +218,7 @@ static float lineCellCount = 6.0;
     return result;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    CGFloat b = collectionView.bounds.size.height-66;
+    CGFloat b = collectionView.bounds.size.height - 86;
     CGFloat vertical = b/(lineCellCount + 1)/(lineCellCount + 1);
     return vertical;
 }
