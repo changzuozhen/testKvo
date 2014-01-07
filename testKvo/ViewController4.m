@@ -54,10 +54,11 @@ static float lineCellCount = 6.0;
     return 24;
 }
 
+
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     collectionViewCell * result = nil;
-    int i = 0;
+//    int i = 0;
     NSString * identifer = @"cell1";//[self identiferForItemAtIndexPath:indexPath];
     while (!result) {
 //        while (!identifer) {
@@ -65,23 +66,28 @@ static float lineCellCount = 6.0;
 //            identifer = [self identiferForItemAtIndexPath:indexPath];
 //        }
         result = [collectionView dequeueReusableCellWithReuseIdentifier:identifer forIndexPath:indexPath];
-        if ([indexPath isEqual:[[collectionView indexPathsForSelectedItems] lastObject]]) {
-            [result setBackgroundColor:[UIColor yellowColor]];
-        }else{
-            [result setBackgroundColor:[self colorForItemAtIndexPath:indexPath]];
-        }
+
         NSString * key = [NSString stringWithFormat:@"%d %d", [indexPath indexAtPosition:0],[indexPath indexAtPosition:1]];
 //        NSLog(@"get cell of : %@",key);
-        if ([[settings sharedsettings].playedCount objectForKey:key] == nil) {
+        if ([[settings sharedsettings].playedCount objectForKey:key] == 0) {
             [[settings sharedsettings].playedCount setObject:[NSNumber numberWithInt:0] forKey:key];
         }else{
 //            NSLog(@"[settings sharedsettings].playedCount has key: %@",key);
         }
-        [result.label setText:[NSString stringWithFormat:@"%d %d",[indexPath indexAtPosition:1],[[[settings sharedsettings].playedCount objectForKey:key] integerValue]]];
-        i++;
-        if (i>1) {
-            NSLog(@"dequeueReusableCellWithReuseIdentifier not good !!!!!!!!!!!!!");
+        [result updatewithIndexPath:indexPath];
+        
+        if ([indexPath isEqual:[[collectionView indexPathsForSelectedItems] lastObject]]) {
+            [result setBackgroundColor:[UIColor yellowColor]];
         }
+//        else{
+////            [result setBackgroundColor:[self colorForItemAtIndexPath:indexPath]];
+//            [result resetColorwithIndexPath:indexPath];
+//        }
+//        [result.label setText:[NSString stringWithFormat:@"%d %d",[indexPath indexAtPosition:1],[[[settings sharedsettings].playedCount objectForKey:key] integerValue]]];
+//        i++;
+//        if (i>1) {
+//            NSLog(@"dequeueReusableCellWithReuseIdentifier not good !!!!!!!!!!!!!");
+//        }
     }
 
 //    CGPoint center = [result convertPoint:result.center fromView:result.superview];
@@ -95,23 +101,7 @@ static float lineCellCount = 6.0;
     
     return result;
 }
--(UIColor *)colorForItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray *colors = @[
-                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
-                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
-                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
-                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
-                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
-                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
-                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
-                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
-                        [UIColor colorWithRed:240/255.f green:159/255.f blue:254/255.f alpha:1],
-                        [UIColor colorWithRed:255/255.f green:137/255.f blue:167/255.f alpha:1],
-                        [UIColor colorWithRed:126/255.f green:242/255.f blue:195/255.f alpha:1],
-                        [UIColor colorWithRed:119/255.f green:152/255.f blue:255/255.f alpha:1],
-                        ];
-    return colors[[indexPath indexAtPosition:0]%12];
-}
+
 //@optional
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -160,7 +150,9 @@ static float lineCellCount = 6.0;
 //5
 - (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"didUnhighlightItemAtIndexPath");
-    [[collectionView cellForItemAtIndexPath:indexPath]setBackgroundColor:[self colorForItemAtIndexPath:indexPath]];
+//    [[collectionView cellForItemAtIndexPath:indexPath]setBackgroundColor:[self colorForItemAtIndexPath:indexPath]];
+    collectionViewCell * tempCell = (collectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [tempCell resetColorwithIndexPath:indexPath];
 }
 //3
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -179,9 +171,9 @@ static float lineCellCount = 6.0;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"didSelectItemAtIndexPath : %@",indexPath);
     collectionViewCell * tempCell = (collectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [tempCell setBackgroundColor:[UIColor yellowColor]];
+
     //加入segue处理函数
-    
+//    [self performSegueWithIdentifier:@"scroViewSegue" sender:collectionView];
 //    NSString * key = [NSString stringWithFormat:@"%@",indexPath];
     NSString * key = [NSString stringWithFormat:@"%d %d", [indexPath indexAtPosition:0],[indexPath indexAtPosition:1]];
     NSNumber * value = [[settings sharedsettings].playedCount objectForKey:key];
@@ -191,12 +183,17 @@ static float lineCellCount = 6.0;
         int temp = [value integerValue]+1;
         [[settings sharedsettings].playedCount setObject:[NSNumber numberWithInt:temp] forKey:key];
     }
-    [tempCell.label setText:[NSString stringWithFormat:@"%d %d",[indexPath indexAtPosition:1],[[[settings sharedsettings].playedCount objectForKey:key] integerValue]]];
+//    [self updateCell:tempCell withIndexPath:indexPath];
+    [tempCell updatewithIndexPath:indexPath];
+    [tempCell setBackgroundColor:[UIColor yellowColor]];
+    //    [tempCell.label setText:[NSString stringWithFormat:@"%d %d",[indexPath indexAtPosition:1],[[[settings sharedsettings].playedCount objectForKey:key] integerValue]]];
 }
 //4
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"didDeselectItemAtIndexPath");
-    [[collectionView cellForItemAtIndexPath:indexPath]setBackgroundColor:[self colorForItemAtIndexPath:indexPath]];
+//        [self updateCell:tempCell withIndexPath:indexPath];
+    collectionViewCell * tempCell = (collectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [tempCell resetColorwithIndexPath:indexPath];
 }
 
 //- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
