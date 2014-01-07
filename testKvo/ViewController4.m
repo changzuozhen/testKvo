@@ -139,7 +139,7 @@ static float lineCellCount = 6.0;
 //        return YES;
 //    }
 //    return NO;
-    NSLog(@"**********\nshouldHighlightItemAtIndexPath");
+    NSLog(@"**********shouldHighlightItemAtIndexPath**********");
     return YES;
 }
 //2

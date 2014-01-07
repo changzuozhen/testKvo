@@ -2,12 +2,12 @@
 //  ViewController3.h
 //  testKvo
 //
-//  Created by ChangZuozhen on 14-1-6.
+//  Created by ChangZuozhen on 14-1-7.
 //  Copyright (c) 2014年 ChangZuozhen. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController3 : UIViewController<UIScrollViewDelegate>
+#import <iAd/iAd.h>
+@interface ViewController3 : UIViewController<ADBannerViewDelegate>
 
 @end
