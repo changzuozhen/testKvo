@@ -15,6 +15,7 @@ static float lineCellCount = 6.0;
 @interface ViewController4 ()
 //@property (strong, nonatomic) IBOutlet UICollectionViewCell *onecell;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UICollectionView *theCollectionView;
 
 
 @end
@@ -47,7 +48,27 @@ static float lineCellCount = 6.0;
 
 
 
+#pragma mark - tests
+- (IBAction)btn_test:(id)sender {
+    static int sectiontemp = 0;
+    sectiontemp++;
+    if (sectiontemp > 19) {
+        sectiontemp = 0;
+    }
+    [self zoomToPage:sectiontemp];
 
+}
+-(void)zoomToPage:(int)page{
+    //    NSIndexPath * indexTemp = [NSIndexPath indexPathForItem:18 inSection:sectiontemp];
+    //    NSLog(@"%@",indexTemp);
+    //    [self.theCollectionView scrollToItemAtIndexPath:indexTemp atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    CGRect rectframe = self.theCollectionView.bounds;
+    //    CGRect rectTemp = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+    rectframe.origin.x = rectframe.size.width*(float)page;
+    NSLog(@"%@",NSStringFromCGRect(rectframe));
+    //    [self.theCollectionView zoomToRect:rectframe animated:YES];
+    [self.theCollectionView scrollRectToVisible:rectframe animated:YES];
+}
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

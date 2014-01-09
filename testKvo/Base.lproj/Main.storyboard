@@ -503,12 +503,12 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="supplementary" id="nZx-eS-SSj">
-                                    <rect key="frame" x="0.0" y="64" width="0.5" height="480"/>
+                                    <rect key="frame" x="0.0" y="64" width="1" height="480"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="supplementary" id="VPM-5O-0bj">
-                                    <rect key="frame" x="51" y="64" width="0.5" height="480"/>
+                                    <rect key="frame" x="51" y="64" width="1" height="480"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </collectionReusableView>
@@ -533,9 +533,16 @@
                             <constraint firstAttribute="centerX" secondItem="ef4-pb-mPu" secondAttribute="centerX" constant="0.5" id="yMP-TO-Kfl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="title" id="QD1-eh-ZYW"/>
+                    <navigationItem key="navigationItem" title="title" id="QD1-eh-ZYW">
+                        <barButtonItem key="rightBarButtonItem" title="test" id="dK9-Z2-80Z">
+                            <connections>
+                                <action selector="btn_test:" destination="paI-Un-9hF" id="0uf-9k-IsB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="pageControl" destination="ef4-pb-mPu" id="IZ1-fU-fyB"/>
+                        <outlet property="theCollectionView" destination="1u9-TS-Uiw" id="cYT-Yo-K69"/>
                         <segue destination="Ww5-4p-u7B" kind="push" identifier="scroViewSegue" id="ALs-6y-Dqx"/>
                     </connections>
                 </viewController>
@@ -621,6 +628,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sPH-cw-yrj"/>
+        <segue reference="ALs-6y-Dqx"/>
     </inferredMetricsTieBreakers>
 </document>
